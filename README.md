@@ -12,11 +12,11 @@
 ## **Languages**
 <br>
 
-<img align="center" src="./images/html.jpg" width="40" height="40"> HTML 100.0%
+<img align="center" src="./images/html.jpg" width="30" height="40"> HTML 100.0%
 
 <br>
 
-<img align="center" src="./images/css.jpg" width="50" height="40"> CSS 100.0%
+<img align="center" src="./images/css.jpg" width="30" height="40"> CSS 100.0%
 
 <br>
 
