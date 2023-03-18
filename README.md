@@ -9,23 +9,6 @@
 
 ---
 
-## **Languages**
-<br>
-
-<img align="center" src="./images/js.jpg" width="100" height="40"> JavaScript 100.0%
-
-<br>
-
-<img align="center" src="./images/html.jpg" width="50" height="40"> HTML 100.0%
-
-<br>
-
-<img align="center" src="./images/css.jpg" width="50" height="40"> CSS 100.0%
-
-<br>
-
----
-
 <br>
 
 [Please click here to open the app in browser](https://xoshbaxt.github.io/main-assignment-4/)
