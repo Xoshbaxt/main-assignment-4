@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <div id="calculator_container">
+        <div class="content">
+            <input type="text" id="display" value="0" maxlength="20">
+            <table>
+                <tr>
+                    <td><input class="clear" type="button" value="AC"></td>
+                    <td><input class="sign" type="button" value="+/-"></td>
+                    <td><input class="percentage" type="button" value="%"></td>
+                    <td><input class="backspace" type="button" value="&rarr;"></td>
+                </tr>
+                <tr>
+                    <td><input class="numbers" type="button" value="7"></td>
+                    <td><input class="numbers" type="button" value="8"></td>
+                    <td><input class="numbers" type="button" value="9"></td>
+                    <td><input class="operators division" name="division" type="button" value="&#xF7"></td>
+                </tr>
+                <tr>
+                    <td><input class="numbers" type="button" value="4"></td>
+                    <td><input class="numbers" type="button" value="5"></td>
+                    <td><input class="numbers" type="button" value="6"></td>
+                    <td><input class="operators multiplication" name="multiplication" type="button" value="*"></td>
+                </tr>
+                <tr>
+                    <td><input class="numbers" type="button" value="1"></td>
+                    <td><input class="numbers" type="button" value="2"></td>
+                    <td><input class="numbers" type="button" value="3"></td>
+                    <td><input class="operators addition" name="addition" type="button" value="+"></td>
+                </tr>
+                <tr>
+                    <td><input class="numbers" type="button" value="0"></td>
+                    <td><input class="decimal_separator" type="button" value="."></td>
+                    <td><input class="equal" type="button" value="="></td>
+                    <td><input class="operators subtraction" name="subtraction" type="button" value="-"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

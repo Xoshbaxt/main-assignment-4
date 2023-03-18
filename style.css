@@ -1,0 +1,281 @@
+@media screen and (min-width: 901px) {
+    #calculator_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15%;
+        width: 29.5vw;
+        background-color: rgb(4, 86, 100);
+    }
+
+    #display {
+        width: 27.5vw;
+        height: 8vh;
+        border-radius: 8px;
+        font-size: 2em;
+        text-align: right;
+        text-indent: 5px;
+        margin-top: 1%;
+        margin-left: 1.2%;
+        padding-right: 1.9%; 
+    }
+    
+    table {
+        width: 28.5vw;
+        margin-left: 1.2%;
+        padding: 0;
+    }
+
+    table input {
+        width: 7vw;
+        height: 6vh;
+        border-radius: 8px;
+        border-width: 4px;
+        border-color: rgb(236, 230, 222);
+        font-weight: 600;
+        color: rgb(36, 35, 35);
+        background-color: rgb(221, 221, 221);
+        transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+    #calculator_container {
+        display: flex;
+        margin-left: 30%;
+        margin-top: 10%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15%;
+        width: 35vw;
+        background-color: rgb(4, 86, 100);
+    }
+
+    #display {
+        width: 32vw;
+        height: 8vh;
+        border-radius: 8px;
+        font-size: 2em;
+        text-align: right;
+        text-indent: 5px;
+        margin-top: 1%;
+        margin-left: 1.2%;
+        padding-right: 1.9%; 
+    }
+    
+    table {
+        width: 34vw;
+        margin-left: 1.2%;
+        padding: 0;
+    }
+
+    table input {
+        width: 8vw;
+        height: 6vh;
+        border-radius: 8px;
+        border-width: 4px;
+        border-color: rgb(236, 230, 222);
+        font-weight: 600;
+        color: rgb(36, 35, 35);
+        background-color: rgb(221, 221, 221);
+        transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+}
+
+@media screen and (max-width: 751px) {
+    #calculator_container {
+        display: flex;
+        margin-left: 8%;
+        margin-top: 10%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15%;
+        width: 35vw;
+        background-color: rgb(4, 86, 100);
+    }
+
+    #display {
+        width: 32vw;
+        height: 8vh;
+        border-radius: 8px;
+        font-size: 2em;
+        text-align: right;
+        text-indent: 5px;
+        margin-top: 1%;
+        margin-left: 1.2%;
+        padding-right: 1.9%; 
+    }
+    
+    table {
+        width: 34vw;
+        margin-left: 1.2%;
+        padding: 0;
+    }
+
+    table input {
+        width: 8vw;
+        height: 6vh;
+        border-radius: 8px;
+        border-width: 4px;
+        border-color: rgb(236, 230, 222);
+        font-weight: 600;
+        color: rgb(36, 35, 35);
+        background-color: rgb(221, 221, 221);
+        transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #calculator_container {
+        display: flex;
+        margin-left: 6%;
+        margin-top: 10%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15%;
+        width: 35vw;
+        background-color: rgb(4, 86, 100);
+    }
+
+    #display {
+        width: 32vw;
+        height: 8vh;
+        border-radius: 8px;
+        font-size: 2em;
+        text-align: right;
+        text-indent: 5px;
+        margin-top: 1%;
+        margin-left: 1.2%;
+        padding-right: 1.9%; 
+    }
+    
+    table {
+        width: 34vw;
+        margin-left: 1.2%;
+        padding: 0;
+    }
+
+    table input {
+        width: 8vw;
+        height: 6vh;
+        border-radius: 8px;
+        border-width: 4px;
+        border-color: rgb(236, 230, 222);
+        font-weight: 600;
+        color: rgb(36, 35, 35);
+        background-color: rgb(221, 221, 221);
+        transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+}
+
+@media screen and (max-width: 393px) {
+    #calculator_container {
+        display: flex;
+        margin-left: 5%;
+        margin-top: 10%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15%;
+        width: 40vw;
+        background-color: rgb(4, 86, 100);
+    }
+
+    #display {
+        width: 36vw;
+        height: 8vh;
+        border-radius: 8px;
+        font-size: 2em;
+        text-align: right;
+        text-indent: 5px;
+        margin-top: 1%;
+        margin-left: 1.2%;
+        padding-right: 1.9%; 
+    }
+    
+    table {
+        width: 37vw;
+        margin-left: 1.2%;
+        padding: 0;
+    }
+
+    table input {
+        width: 9vw;
+        height: 6vh;
+        border-radius: 8px;
+        border-width: 4px;
+        border-color: rgb(236, 230, 222);
+        font-weight: 600;
+        color: rgb(36, 35, 35);
+        background-color: rgb(221, 221, 221);
+        transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+table input:hover {
+    opacity: 0.9;
+}
+
+.clear {
+    background-color: rgb(255, 46, 46) !important;
+    border-color: rgb(219, 2, 2) !important;
+}
+
+.multiplication {
+    font-size: 1.5em;
+}
+
+.division {
+    font-size: 1.5em;
+    font-weight: 300 !important;
+}
+
+.subtraction {
+    font-size: 1.3em;
+    font-weight: 400 !important;
+}
+
+.addition {
+    font-size: 1.1em;
+    font-weight: 400 !important;
+}
+
+.backspace {
+    background-color: rgb(255, 22, 80) !important;
+    border-color: rgb(219, 0, 55) !important;
+    font-size: 1.3em;
+    font-weight: 300 !important;
+    line-height: 0px;
+}
+
+.equal {
+    background-color: rgb(255, 217, 45) !important;
+    border-color: rgb(250, 204, 0) !important;;
+    font-size: 1.2em;
+    font-weight: 500 !important;
+}
+
