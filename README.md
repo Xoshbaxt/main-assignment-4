@@ -23,6 +23,7 @@
 <img align="center" src="./images/js.jpg" width="80" height="40"> JavaScript 100.0%
 
 <br>
+
 ---
 
 <br>
