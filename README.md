@@ -1,6 +1,6 @@
 # Calculaltor App
 
-***This app performs basic math operations. It has also provides keyboard support.***
+***This app performs basic math operations. It also provides keyboard support.***
 
 <br>
 <img src="./images/calculator.png" width="425" height="388">
