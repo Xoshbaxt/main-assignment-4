@@ -12,15 +12,15 @@
 ## **Languages**
 <br>
 
-<img align="center" src="./images/html.jpg" width="80" height="40"> JavaScript 100.0%
+<img align="center" src="./images/html.jpg" width="80" height="40"> HTML 100.0%
 
 <br>
 
-<img align="center" src="./images/css.jpg" width="80" height="40"> JavaScript 100.0%
+<img align="center" src="./images/css.jpg" width="60" height="40"> CSS 100.0%
 
 <br>
 
-<img align="center" src="./images/js.jpg" width="80" height="40"> JavaScript 100.0%
+<img align="center" src="./images/js.jpg" width="60" height="40"> JavaScript 100.0%
 
 <br>
 ---
