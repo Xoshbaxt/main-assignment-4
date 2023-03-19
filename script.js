@@ -1,8 +1,8 @@
 function clearDisplayText() {
     display.changeValue = "0";
-    first_input.changeFirstInput = "";
+    first_input.value = "";
     display_text.value = "0";
-    sign.changeSignValue = "plus";
+    sign.value = "plus";
     decimal_separator.pressed = false;
     operator.pressed = false;
     operator.name = "";
@@ -21,7 +21,7 @@ function undo() {
 }
 
 function isEqualPressingSafe() {
-    if ((first_input.value !== "") && (display.storedValue !== first_input.value) && (operator.count > 0)) return true;
+    if (display.storedValue !== "" && operator.count > 0) return true;
     else return false;
 }
 
@@ -38,7 +38,7 @@ function multiply(number_1, number_2) {
 }
 
 function divide(number_1, number_2) {
-    if (number_2 === 0) return "Zero rolled away \u{1F631}";
+    if (number_2 === 0) return zero_division_error;
     else return number_1 / number_2;
 }
 
@@ -51,12 +51,10 @@ function calculatePercentage(value) {
     let percentage_number =  float_value / 100;
     display.changeValue = percentage_number;
     displayResults(percentage_number);
-    first_input.changeFirstInput = "";
+    first_input.value = "";
 }
 
 function operate(operator, value_1, value_2) {
-    console.log(value_1);
-    console.log(value_2);
     let result;
     switch(operator) {
         case "addition":
@@ -107,11 +105,8 @@ function doOperation(operator_name) {
     if((first_input.value !== "") && (first_input.value !== display.storedValue)){ 
         result = operate(operator.name, first_input.value, display.storedValue);
     }
-    else if ((operator.count > 1) && (!Equal.isPressed)) {
-        result = operate(operator.name, display.storedValue, display.storedValue);
-    }
     if(result !== ""){
-        if(result.toString().length > 12) result = result.toPrecision(5);
+        if(result.toString().length > 12 && result.toString() !== zero_division_error) result = result.toPrecision(5);
         display.changeValue = result;
         displayResults(result);
     }
@@ -121,34 +116,37 @@ function doOperation(operator_name) {
 function doEqualOperation() {
     Equal.isPressed = true;
     let isSafe = isEqualPressingSafe();
+    let result;
     if (isSafe) {
-        let result = operate(operator.name, first_input.value, display.storedValue);
-        if (result.toString().length > 12) result =  result.toPrecision(5);
+        if (first_input.value === "" && operator.count === 1 && Equal.isPressed){
+            result = operate(operator.name, display.storedValue, display.storedValue);
+        } 
+        else result = operate(operator.name, first_input.value, display.storedValue);
+        if (result.toString().length > 12 && result.toString() !== zero_division_error) result =  result.toPrecision(5);
         display.changeValue = result;
         displayResults(result);
         operator.pressed = false;
     }
-    first_input.changeFirstInput = display.storedValue;
+    first_input.value = display.storedValue;
 }
 
 function assignSignValue() {
     let display_data;
     if(display_text.value !== "0"){
-        if(sign.signData === "plus") {
-            display_data = display_text.value;
+        display_data = display_text.value;
+        if(sign.value === "plus") {
             display.changeValue = "-" + display_data;
-            displayResults(display.storedValue);
-            sign.changeSignValue = "minus";
+            sign.value = "minus";
         }
-        else if(sign.signData === "minus") {
-            display_data = display_text.value;
+        else if(sign.value === "minus") {
             display.changeValue = display_data.substring(1);
-            displayResults(display.storedValue);
-            sign.changeSignValue = "plus";
+            sign.value = "plus";
         } 
+        displayResults(display.storedValue);
     }
 }
 
+// Keyboard input checking
 function checkOtherKeyboardValues(key) {
     if (key === '+' || key === '-' || key === '*' || key === '/') {
         if(key === '-' && display_text.selectionStart === 0) {
@@ -158,13 +156,11 @@ function checkOtherKeyboardValues(key) {
         decimal_separator.pressed = false;
         defineOperatorName(key);
         Equal.isPressed = false;
-        console.log(display.storedValue);
-        console.log(first_input.value);
     } 
     else if (key === '=') {
         doEqualOperation();
         decimal_separator.pressed = false;
-        Equal.pressed = false;
+        Equal.isPressed = false;
     }    
     else if (key === '%') {
         let displayData = display_text.value;
@@ -181,13 +177,9 @@ function checkOtherKeyboardValues(key) {
 }
 
 const decimal_separator = {pressed: false};
-
-const equal = document.querySelector('.equal');
-equal.addEventListener('click', () => {
-    doEqualOperation();
-})
-
-const display_text = document.getElementById("display");
+const first_input = {value: ""};
+const sign = {value: "plus"};
+const Equal = {isPressed:false};
 
 const display = {
     display_value: "0",
@@ -201,58 +193,38 @@ const display = {
     },
 };
 
-const first_input = {
-    value_of_first_input: "",
-
-    set changeFirstInput(newValue) {
-        this.value_of_first_input = newValue;
-    },
-
-    get value() {
-        return this.value_of_first_input;
-    }
-}
-
-const sign = {
-    sign_value: "plus",
-
-    set changeSignValue(newValue) {
-        this.sign_value = newValue;
-    },
-
-    get signData() {
-        return this.sign_value;
-    }
+const operator = {
+    pressed: false,
+    name: "",
+    count: 0
 };
 
+const zero_division_error = "Zero rolled away \u{1F631}";
+
+const display_text = document.getElementById("display");
+
+const equal = document.querySelector('.equal');
+equal.addEventListener('click', () => {
+    doEqualOperation();
+});
+
+// Getting input from calculator
 const number_inputs = document.querySelectorAll('.numbers');
 number_inputs.forEach((number_input) => {
     number_input.addEventListener('click', (e) => {
         if (display.storedValue.toString().length < 20) {
             if(operator.pressed || Equal.isPressed) {
-                first_input.changeFirstInput = display.storedValue;
+                first_input.value = display.storedValue;
                 display.changeValue = "";
                 displayResults(display.storedValue);
                 operator.pressed = false;
                 Equal.isPressed = false;
                 decimal_separator.pressed = false; 
             }
-            if(decimal_separator.pressed) {
-                display.changeValue = display.storedValue + e.target.value;
-                displayResults(display.storedValue);
-            }
-            else if (display.storedValue === "0") {
-                display.changeValue = e.target.value;
-                displayResults(display.storedValue);
-            }
-            else if (operator.pressed) {
-                display.changeValue = e.target.value;
-                displayResults(display.storedValue);
-            }
-            else {
-                display.changeValue = display.storedValue + e.target.value;
-                displayResults(display.storedValue);
-            }
+            //if(decimal_separator.pressed) display.changeValue = display.storedValue + e.target.value;
+            if (display.storedValue === "0" || operator.pressed) display.changeValue = e.target.value;
+            else display.changeValue = display.storedValue + e.target.value;
+            displayResults(display.storedValue);
         }
     });
 });
@@ -290,6 +262,7 @@ clearAll.addEventListener('click', clearDisplayText);
 const backspace = document.querySelector('.backspace');
 backspace.addEventListener('click', undo);
 
+// Getting input from keyboard
 const input_value = document.getElementById("display");
 input_value.addEventListener('keydown', (e) => {
     let allowed_inputs = /^[0-9]+$/;
@@ -298,7 +271,7 @@ input_value.addEventListener('keydown', (e) => {
     if(!allowed) e.preventDefault();
     else {
         if (operator.pressed && display.storedValue !== "0") {
-            first_input.changeFirstInput = display.storedValue;
+            first_input.value = display.storedValue;
             display_text.value = "";
             display.changeValue = e.key;
             operator.pressed = false;
@@ -309,11 +282,3 @@ input_value.addEventListener('keydown', (e) => {
     // check for other keyboard values
     checkOtherKeyboardValues(e.key); 
 });
-
-const operator = {
-    pressed: false,
-    name: "",
-    count: 0
-};
-
-const Equal = {isPressed:false};
