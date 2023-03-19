@@ -75,6 +75,7 @@ function operate(operator, value_1, value_2) {
     return result;
 }
 
+// setting operator name for keyboard operators 
 function defineOperatorName(operator_value) {
     let operator_name;
     switch(operator_value) {
@@ -102,7 +103,7 @@ function doOperation(operator_name) {
     let result = "";
     operator.count++;
     if (operator.name === "") operator.name = operator_name;
-    if((first_input.value !== "") && (first_input.value !== display.storedValue)){ 
+    if(first_input.value !== "" && first_input.value !== display.storedValue){ 
         result = operate(operator.name, first_input.value, display.storedValue);
     }
     if(result !== ""){
@@ -118,7 +119,7 @@ function doEqualOperation() {
     let isSafe = isEqualPressingSafe();
     let result;
     if (isSafe) {
-        if (first_input.value === "" && operator.count === 1 && Equal.isPressed){
+        if (first_input.value === "" && operator.count === 1) {
             result = operate(operator.name, display.storedValue, display.storedValue);
         } 
         else result = operate(operator.name, first_input.value, display.storedValue);
@@ -203,11 +204,6 @@ const zero_division_error = "Zero rolled away \u{1F631}";
 
 const display_text = document.getElementById("display");
 
-const equal = document.querySelector('.equal');
-equal.addEventListener('click', () => {
-    doEqualOperation();
-});
-
 // Getting input from calculator
 const number_inputs = document.querySelectorAll('.numbers');
 number_inputs.forEach((number_input) => {
@@ -221,7 +217,6 @@ number_inputs.forEach((number_input) => {
                 Equal.isPressed = false;
                 decimal_separator.pressed = false; 
             }
-            //if(decimal_separator.pressed) display.changeValue = display.storedValue + e.target.value;
             if (display.storedValue === "0" || operator.pressed) display.changeValue = e.target.value;
             else display.changeValue = display.storedValue + e.target.value;
             displayResults(display.storedValue);
@@ -250,17 +245,6 @@ decimalSeparator.addEventListener('click', (e) => {
         decimal_separator.pressed = true;
     }    
 });
-
-const signValue = document.querySelector('.sign');
-signValue.addEventListener('click', () => {
-    assignSignValue();
-});
-
-const clearAll = document.querySelector('.clear');
-clearAll.addEventListener('click', clearDisplayText);
-
-const backspace = document.querySelector('.backspace');
-backspace.addEventListener('click', undo);
 
 // Getting input from keyboard
 const input_value = document.getElementById("display");
